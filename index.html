@@ -27,6 +27,14 @@
     <h1>Temerinska 36</h1>
     <p>Uskoro...</p>
   </main>
+
+  <script>
+    function setVh() {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    }
+    setVh();
+    window.addEventListener('resize', setVh);
+  </script>  
 </body>
 
 </html>
