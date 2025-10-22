@@ -18,7 +18,7 @@ main {
   max-width: min(300px, 100vw);
   padding-inline: 1rem;
   text-align: center;
-  order: -1;
+  order: 1;
 }
 
 img {
