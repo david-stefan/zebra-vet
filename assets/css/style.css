@@ -35,7 +35,7 @@ h1 {
 }
 
 .swiper {
-  max-width: calc(min(1000px, 100vw) - 1rem);
+  width: calc(min(1000px, 100vw) - 1rem);
 }
 
 .swiper-slide {
