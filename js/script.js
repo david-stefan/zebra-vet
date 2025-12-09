@@ -1,13 +1,3 @@
-function debounce(func, delay) {
-  let timeoutId;
-  return (...args) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
-}
-
 function setVhVariable() {
   const vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', vh);
@@ -19,13 +9,11 @@ function setVwVariable() {
 }
 
 function setObserver(element, callback) {
-  const debouncedCallback = debounce(callback, 250);
-
-  const resizeObserver = new ResizeObserver((entries) => {
+    const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       const width = entry.contentRect.width;
       const height = entry.contentRect.height;
-      debouncedCallback({ width, height });
+      callback({ width, height });
     }
   });
   resizeObserver.observe(element);
