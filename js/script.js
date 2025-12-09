@@ -37,7 +37,7 @@ try {
 
     setObserver(document.querySelector('.service-block'), ({ width }) => {
       const maxWidth = 132;
-      document.getElementById('services').style.setProperty('--service-block-ratio', Math.min(1, Number(width / maxWidth).toFixed(2)));
+      document.getElementById('services').style.setProperty('--service-block-ratio', Math.min(1, width / maxWidth));
     });
   });
 } catch (error) {
