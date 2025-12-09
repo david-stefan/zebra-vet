@@ -92,5 +92,4 @@ svg-mask > svg {
     clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
   }
 }
-
 /*# sourceMappingURL=global.css.map */

@@ -71,8 +71,10 @@ body {
 }
 
 #hero > img {
-  object-fit: cover;
-  object-position: center 25%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center 25%;
+     object-position: center 25%;
 }
 
 main {
@@ -88,7 +90,8 @@ main {
 }
 
 #services {
-  column-gap: calc(var(--service-block-ratio) * 2rem);
+  -moz-column-gap: calc(var(--service-block-ratio) * 2rem);
+       column-gap: calc(var(--service-block-ratio) * 2rem);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -115,5 +118,4 @@ main {
   height: auto;
   margin-bottom: 1rem;
 }
-
 /*# sourceMappingURL=style.css.map */
