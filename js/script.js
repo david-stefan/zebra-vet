@@ -1,9 +1,18 @@
 function setVhVariable() {
-  const vh = window.outerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', vh);
 }
 
-window.addEventListener('load', setVhVariable);
+function setVwVariable() {
+  const vw = window.innerWidth * 0.01;
+  document.documentElement.style.setProperty('--vw', vw);
+}
+
+window.addEventListener('load', () => {
+  setVhVariable();
+  setVwVariable();
+});
+window.addEventListener('resize', setVwVariable);
 screen.orientation.addEventListener('change', setVhVariable);
 
 function setObserver(element, callback) {
@@ -18,6 +27,9 @@ function setObserver(element, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  setVhVariable();
+  setVwVariable();
+
   const headerHeight = document.getElementById('main-header').offsetHeight;
   document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
 

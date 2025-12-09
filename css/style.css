@@ -5,29 +5,29 @@ body {
 }
 
 #main-header {
-  --max-width: 1366px;
+  --max-width: 1366;
   align-items: start;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
-  padding: clamp(1rem, 1rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 1rem, 2rem);
-  padding-block-end: clamp(0.5rem, 0.5rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 0.5rem, 1rem);
+  padding: clamp(1rem, 1rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 1rem, 2rem);
+  padding-block-end: clamp(0.5rem, 0.5rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 0.5rem, 1rem);
 }
 
 #main-header__logo > img {
-  width: clamp(160px, 160px + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 212px, 372px);
+  width: clamp(160px, 160px + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 212px, 372px);
 }
 
 #main-header__info {
-  font-size: clamp(14px, 14px + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 8px, 22px);
+  font-size: clamp(14px, 14px + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 8px, 22px);
 }
 
 #main-footer {
-  --max-width: 800px;
+  --max-width: 800;
   background-color: rgb(var(--color-coriander));
-  font-size: clamp(14px, 14px + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2px, 16px);
-  padding-inline: clamp(1rem, 1rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 3rem, 4rem);
+  font-size: clamp(14px, 14px + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2px, 16px);
+  padding-inline: clamp(1rem, 1rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 3rem, 4rem);
   position: relative;
 }
 
@@ -35,8 +35,8 @@ body {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(2rem, 2rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2rem, 4rem);
-  padding-block: clamp(85px, 85px + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 65px, 150px) clamp(2rem, 2rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2rem, 4rem);
+  gap: clamp(2rem, 2rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2rem, 4rem);
+  padding-block: clamp(85px, 85px + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 65px, 150px) clamp(2rem, 2rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2rem, 4rem);
 }
 @media (max-width: 950px) {
   #main-footer > div {
@@ -48,7 +48,8 @@ body {
   aspect-ratio: 1;
   border: 1px solid black;
   border-radius: 0.5rem;
-  max-width: clamp(280px, 280px + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 120px, 400px);
+  flex-grow: 1;
+  max-width: clamp(280px, 280px + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 120px, 400px);
 }
 
 #main-footer__copyright {
@@ -62,10 +63,10 @@ body {
 }
 
 #hero {
-  --max-width: 1366px;
+  --max-width: 1366;
   background-image: url("/images/hero.jpg"); /* TODO: responsive sizes */
   background-size: cover;
-  height: calc(100 * var(--vh, 1vh) - var(--header-height));
+  height: calc(min(100vh, var(--vh, 9999) * 100px) - var(--header-height));
   min-height: 55vw;
   position: relative;
 }
@@ -78,14 +79,14 @@ body {
 }
 
 main {
-  --max-width: 720px;
+  --max-width: 720;
   background: linear-gradient(to bottom, rgb(var(--color-green-white)), white, rgb(var(--color-green-white)));
   display: flex;
   flex-direction: column;
-  font-size: clamp(14px, 14px + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 6px, 20px);
-  margin-block: clamp(1.5rem, 1.5rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2.5rem, 4rem) clamp(0.75rem, 0.75rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 1.25rem, 2rem);
-  padding-inline: clamp(1.5rem, 1.5rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2.5rem, 4rem);
-  row-gap: clamp(3rem, 3rem + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 3rem, 6rem);
+  font-size: clamp(14px, 14px + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 6px, 20px);
+  margin-block: clamp(1.5rem, 1.5rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2.5rem, 4rem) clamp(0.75rem, 0.75rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 1.25rem, 2rem);
+  padding-inline: clamp(1.5rem, 1.5rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 2.5rem, 4rem);
+  row-gap: clamp(3rem, 3rem + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 3rem, 6rem);
   text-align: center;
 }
 
@@ -96,7 +97,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   margin-inline: auto;
-  max-width: calc(144% - clamp(64%, 64% + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 16%, 80%));
+  max-width: calc(144% - clamp(64%, 64% + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 16%, 80%));
 }
 
 .service-block {

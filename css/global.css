@@ -9,7 +9,7 @@
   --color-swamp-green: 163, 175, 132;
   --color-a: 214, 214, 214;
   --color-b: 187, 201, 159;
-  --min-width: 400px;
+  --min-width: 400;
 }
 
 a {
@@ -29,7 +29,7 @@ em {
 
 .max-width {
   margin-inline: auto;
-  max-width: var(--max-width);
+  max-width: calc(var(--max-width) * 1px);
 }
 
 .icon {
@@ -60,7 +60,7 @@ em {
 }
 
 svg-mask {
-  --max-width: 1366px;
+  --max-width: 1366;
   display: flex;
   position: absolute;
   left: 0;
@@ -71,7 +71,7 @@ svg-mask {
 svg-mask > svg {
   fill: rgb(var(--color-green-white));
   width: 100%;
-  height: clamp(40px, 40px + (var(--current-width, 100vw) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 45px, 85px);
+  height: clamp(40px, 40px + (var(--current-width, calc(100 * var(--vw))) - var(--min-width)) / (var(--max-width) - var(--min-width)) * 45px, 85px);
 }
 
 @keyframes pulse {
