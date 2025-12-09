@@ -8,33 +8,40 @@ function setVwVariable() {
   document.documentElement.style.setProperty('--vw', vw);
 }
 
-window.addEventListener('load', () => {
-  setVhVariable();
-  setVwVariable();
-});
-window.addEventListener('resize', setVwVariable);
-screen.orientation.addEventListener('change', setVhVariable);
-
 function setObserver(element, callback) {
+  //? callback()
+
   const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       const width = entry.contentRect.width;
       const height = entry.contentRect.height;
-      callback(width, height);
+      callback({ width, height });
     }
   });
   resizeObserver.observe(element);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  setVhVariable();
-  setVwVariable();
+try {
+  window.addEventListener('load', () => {
+    setVhVariable();
+    setVwVariable();
 
-  const headerHeight = document.getElementById('main-header').offsetHeight;
-  document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-
-  setObserver(document.querySelector('.service-block'), (width) => {
-    const maxWidth = 132;
-    document.getElementById('services').style.setProperty('--service-block-ratio', Math.min(1, width / maxWidth));
+    setObserver(document.querySelector('.service-block'), ({ width }) => {
+      const maxWidth = 132;
+      document.getElementById('services').style.setProperty('--service-block-ratio', Math.min(1, width / maxWidth));
+    });
   });
-});
+
+  window.addEventListener('resize', setVwVariable);
+  screen.orientation.addEventListener('change', setVhVariable);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setVhVariable();
+    setVwVariable();
+
+    const headerHeight = document.getElementById('main-header').offsetHeight;
+    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+  });
+} catch (error) {
+  console.error(error);
+}
