@@ -31,6 +31,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+
+  <script src="/js/script-head.js"></script>
 </head>
 
 <body>
@@ -69,6 +71,11 @@
     </a>
   </div>
 </header>
+
+<script>
+  const headerHeight = document.getElementById('main-header').offsetHeight;
+  document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+</script>
 
   <div id="hero">
   <svg-mask>
@@ -193,7 +200,7 @@
   <p id="main-footer__copyright">© 2025 Zebra vet. Sva prava zadržana.</p>
 </footer>
 
-  <script src="/js/script.js"></script>
+  <script src="/js/script-body.js"></script>
 </body>
 
 </html>
